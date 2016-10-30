@@ -16,21 +16,16 @@ package io.makaro;
  * limitations under the License.
  */
 
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
-
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * Goal which executes dotnet test.
  */
 @Mojo( name = "test", defaultPhase = LifecyclePhase.TEST )
-public class DotnetTestMojo extends AbstractMojo {
+public class DotnetTestMojo extends AbstractDotnetMojo {
 	
 	private static final String COMMAND = "dotnet";
 	private static final String COMMAND_PARAMETER = "test";
@@ -41,21 +36,11 @@ public class DotnetTestMojo extends AbstractMojo {
     	Process dotnet;
 		try {
 			dotnet = new ProcessBuilder().command(COMMAND, COMMAND_PARAMETER).start();
-			BufferedReader reader = 
-	                new BufferedReader(new InputStreamReader(dotnet.getErrorStream()));
-			StringBuilder builder = new StringBuilder();
-			String line = null;
-			while ( (line = reader.readLine()) != null) {
-				builder.append(line);
-				builder.append(System.getProperty("line.separator"));
-			}
-			String result = builder.toString();
-			getLog().info(result);
-			if (result.contains("System.InvalidOperationException")) {
+			String errorStreamResult = getSubProcessStream(dotnet, Stream.ERROR);
+			getLog().info(errorStreamResult);
+			if (errorStreamResult.contains("System.InvalidOperationException")) {
 				throw new MojoExecutionException(ERROR_MESSAGE);
 			}
-			
-
 		} catch (IOException e) {
 			throw new MojoExecutionException(ERROR_MESSAGE, e);
 		}
@@ -72,5 +57,7 @@ public class DotnetTestMojo extends AbstractMojo {
 		}
     	
     }
+
+	
 }
 
