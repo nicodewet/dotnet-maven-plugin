@@ -19,6 +19,7 @@ package io.makaro;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
+
 import java.io.IOException;
 
 /**
@@ -36,8 +37,10 @@ public class DotnetTestMojo extends AbstractDotnetMojo {
     	Process dotnet;
 		try {
 			dotnet = new ProcessBuilder().command(COMMAND, COMMAND_PARAMETER).start();
+			String inputStreamResult = getSubProcessStream(dotnet, Stream.INPUT);
 			String errorStreamResult = getSubProcessStream(dotnet, Stream.ERROR);
-			getLog().info(errorStreamResult);
+			logStream(inputStreamResult, Stream.INPUT);
+			logStream(errorStreamResult, Stream.ERROR);
 			if (errorStreamResult.contains("System.InvalidOperationException")) {
 				throw new MojoExecutionException(ERROR_MESSAGE);
 			}

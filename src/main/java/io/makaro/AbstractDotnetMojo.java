@@ -28,5 +28,21 @@ public abstract class AbstractDotnetMojo extends AbstractMojo {
 		String result = builder.toString();
 		return result;
 	}
+	
+	/**
+	 * Only logs if a non-empty string is presented.
+	 */
+	protected void logStream(String logMessage, Stream stream) {
+		String trimmedMessage = logMessage.trim();
+		if (trimmedMessage != null && trimmedMessage.length() > 0 && stream != null) {
+			if (Stream.ERROR == stream) {
+				getLog().error(trimmedMessage);
+			} else if (Stream.INPUT == stream) {
+				getLog().info(trimmedMessage);
+			} else {
+				throw new IllegalArgumentException();
+			}
+		}
+	}
 
 }

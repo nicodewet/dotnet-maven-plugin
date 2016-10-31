@@ -16,9 +16,7 @@ package io.makaro;
  * limitations under the License.
  */
 
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
-
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import java.io.IOException;
@@ -27,7 +25,7 @@ import java.io.IOException;
  * Goal which executes dotnet build.
  */
 @Mojo( name = "build", defaultPhase = LifecyclePhase.COMPILE )
-public class DotnetBuildMojo extends AbstractMojo {
+public class DotnetBuildMojo extends AbstractDotnetMojo {
 	
 	private static final String COMMAND = "dotnet";
 	private static final String COMMAND_PARAMETER = "build";
@@ -37,7 +35,11 @@ public class DotnetBuildMojo extends AbstractMojo {
       
     	Process dotnet;
 		try {
-			dotnet = new ProcessBuilder().command(COMMAND, COMMAND_PARAMETER).inheritIO().start();
+			dotnet = new ProcessBuilder().command(COMMAND, COMMAND_PARAMETER).start();
+			String inputStreamResult = getSubProcessStream(dotnet, Stream.INPUT);
+			String errorStreamResult = getSubProcessStream(dotnet, Stream.ERROR);
+			logStream(inputStreamResult, Stream.INPUT);
+			logStream(errorStreamResult, Stream.ERROR);
 		} catch (IOException e) {
 			throw new MojoExecutionException(ERROR_MESSAGE, e);
 		}
