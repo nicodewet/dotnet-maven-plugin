@@ -8,7 +8,7 @@ This plugin can be used to include .NET Core builds in [Maven](https://maven.apa
 
 ### Alternatives
 
-An alternative to using this plugin would be to write shell scripts to call the **dotnet** utility at appropriate Maven lifecycle phases. The benefit of using this plugin is that it saves you the time of writing these scripts and then calling then from the [Maven AntRun](http://maven.apache.org/plugins/maven-antrun-plugin/) plugin.
+An alternative to using this plugin would be to write shell scripts to call the **dotnet** utility at appropriate Maven lifecycle phases. The benefit of using this plugin is that it saves you the time of writing these scripts and then calling them from the [Maven AntRun](http://maven.apache.org/plugins/maven-antrun-plugin/) plugin.
 
 ## Testing
 
