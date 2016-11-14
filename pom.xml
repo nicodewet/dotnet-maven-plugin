@@ -30,9 +30,9 @@
   
   <distributionManagement>
     <snapshotRepository>
-    <id>nexus-snapshots</id>
-    <url>http://repo.makaro.io/repository/maven-snapshots/</url>
-    </snapshotRepository>
+        <id>makaro.repo</id>
+        <url>http://repo.makaro.io/repository/maven-snapshots/</url>
+        </snapshotRepository>
   </distributionManagement>
 
   <dependencies>
