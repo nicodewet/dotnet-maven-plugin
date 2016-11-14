@@ -10,6 +10,8 @@ public abstract class AbstractDotnetMojo extends AbstractMojo {
 	
 	enum Stream {ERROR, INPUT}
 	
+	final static String COMMAND = "dotnet";
+	
 	protected String getSubProcessStream(Process subProcess, Stream stream) throws IOException {
 		BufferedReader reader;
 		if (Stream.ERROR == stream) {

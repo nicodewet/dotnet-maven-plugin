@@ -28,7 +28,6 @@ import java.io.IOException;
 @Mojo( name = "test", defaultPhase = LifecyclePhase.TEST )
 public class DotnetTestMojo extends AbstractDotnetMojo {
 	
-	private static final String COMMAND = "dotnet";
 	private static final String COMMAND_PARAMETER = "test";
 	private static final String ERROR_MESSAGE = COMMAND + " " + COMMAND_PARAMETER + " failed";
 
