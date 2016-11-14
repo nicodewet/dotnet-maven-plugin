@@ -6,15 +6,34 @@
   <artifactId>dotnet-maven-plugin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
-
   <name>dotnet-maven-plugin Maven Plugin</name>
-
-  <!-- FIXME change it to the project's website -->
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/nicodewet/dotnet-maven-plugin</url>
+  
+  <scm>
+    <url>https://github.com/nicodewet/dotnet-maven-plugin</url>
+    <connection>scm:git:git://github.com/nicodewet/dotnet-maven-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:nicodewet/dotnet-maven-plugin.git</developerConnection>
+  </scm>
+  
+  <developers>
+    <developer>
+        <email>nico@nicodewet.com</email>
+        <name>Nico de Wet</name>
+        <url>https://github.com/nicodewet</url>
+        <id>nicodewet</id>
+    </developer>
+  </developers>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  <distributionManagement>
+    <snapshotRepository>
+    <id>nexus-snapshots</id>
+    <url>http://repo.makaro.io/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
@@ -43,11 +62,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>io.makaro</groupId>
-        <artifactId>dotnet-maven-plugin</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
