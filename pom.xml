@@ -17,17 +17,23 @@
     <connection>scm:git:git://github.com/nicodewet/dotnet-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:nicodewet/dotnet-maven-plugin.git</developerConnection>
   </scm>
-  <ciManagement>http://ci.makaro.io</ciManagement>
-  <issueManagement>https://github.com/nicodewet/dotnet-maven-plugin/issues</issueManagement>
+  <ciManagement>
+    <system>jenkins</system>
+    <url>http://ci.makaro.io</url>
+  </ciManagement>
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/nicodewet/dotnet-maven-plugin/issues</url>
+  </issueManagement>
   <distributionManagement>
+    <repository>
+        <id>makaro.repo</id>
+        <url>http://repo.makaro.io/repository/maven-releases/</url>
+    </repository>
     <snapshotRepository>
         <id>makaro.repo</id>
         <url>http://repo.makaro.io/repository/maven-snapshots/</url>
     </snapshotRepository>
-    <releaseRepository>
-        <id>makaro.repo</id>
-        <url>http://repo.makaro.io/repository/maven-releases/</url>
-    </releaseRepository>
     <site>
       <id>makaro.repo</id>
       <url>dav:http://repo.makaro.io/repository/site/${project.groupId}-${project.artifactId}-${project.version}</url>
