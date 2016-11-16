@@ -41,6 +41,10 @@
   </distributionManagement>
   <!-- Environment Settings: END -->
 
+  <organization>
+    <name>Makaro</name>
+    <url>http://makaro.io</url>
+  </organization>
   <developers>
     <developer>
         <email>nico@nicodewet.com</email>
