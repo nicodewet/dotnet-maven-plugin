@@ -37,7 +37,7 @@
     </snapshotRepository>
     <site>
       <id>makaro.repo</id>
-      <url>dav:http://repo.makaro.io/repository/site/${project.groupId}-${project.version}</url>
+      <url>dav:http://repo.makaro.io/repository/site/${project.groupId}-${project.artifactId}-${project.version}</url>
     </site>
   </distributionManagement>
 
