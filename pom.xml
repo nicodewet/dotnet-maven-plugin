@@ -11,12 +11,30 @@
   <description>A Maven wrapper for the dotnet binary. Provides restore, build, publish and test goals.</description>
   <url>https://github.com/nicodewet/dotnet-maven-plugin</url>
   
+  <!-- Environment Settings: START -->
   <scm>
     <url>https://github.com/nicodewet/dotnet-maven-plugin</url>
     <connection>scm:git:git://github.com/nicodewet/dotnet-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:nicodewet/dotnet-maven-plugin.git</developerConnection>
   </scm>
-  
+  <ciManagement>http://ci.makaro.io</ciManagement>
+  <issueManagement>https://github.com/nicodewet/dotnet-maven-plugin/issues</issueManagement>
+  <distributionManagement>
+    <snapshotRepository>
+        <id>makaro.repo</id>
+        <url>http://repo.makaro.io/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <releaseRepository>
+        <id>makaro.repo</id>
+        <url>http://repo.makaro.io/repository/maven-releases/</url>
+    </releaseRepository>
+    <site>
+      <id>makaro.repo</id>
+      <url>dav:http://repo.makaro.io/repository/site/${project.groupId}-${project.artifactId}-${project.version}</url>
+    </site>
+  </distributionManagement>
+  <!-- Environment Settings: END -->
+
   <developers>
     <developer>
         <email>nico@nicodewet.com</email>
@@ -30,17 +48,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
-  <distributionManagement>
-    <snapshotRepository>
-        <id>makaro.repo</id>
-        <url>http://repo.makaro.io/repository/maven-snapshots/</url>
-    </snapshotRepository>
-    <site>
-      <id>makaro.repo</id>
-      <url>dav:http://repo.makaro.io/repository/site/${project.groupId}-${project.artifactId}-${project.version}</url>
-    </site>
-  </distributionManagement>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
