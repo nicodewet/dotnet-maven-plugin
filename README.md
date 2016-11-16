@@ -1,6 +1,6 @@
 # dotnet-maven-plugin
 
-This project is a *Work In Progress* (the first release has not been done yet).
+This project is a *Work In Progress* (the first release has not been done yet) ...
 
 ## Why?
 
