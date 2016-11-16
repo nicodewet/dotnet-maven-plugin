@@ -8,6 +8,7 @@
   <packaging>maven-plugin</packaging>
   
   <name>dotnet-maven-plugin</name>
+  <description>A Maven wrapper for the dotnet binary. Provides restore, build, publish and test goals.</description>
   <url>https://github.com/nicodewet/dotnet-maven-plugin</url>
   
   <scm>
@@ -36,7 +37,7 @@
     </snapshotRepository>
     <site>
       <id>makaro.repo</id>
-      <url>dav:http://repo.makaro.io/repository/site/</url>
+      <url>dav:http://repo.makaro.io/repository/site/${project.groupId}-${project.version}</url>
     </site>
   </distributionManagement>
 
