@@ -1,7 +1,5 @@
 # dotnet-maven-plugin
 
-This project is a *Work In Progress* (the first release has not been done yet) ...
-
 ## Why?
 
 This plugin can be used to include .NET Core builds in [Maven](https://maven.apache.org/what-is-maven.html) centric pipelines allowing for the re-use of some Maven concepts and [features](https://maven.apache.org/maven-features.html) (e.g. the versioning scheme) and [plugins](https://maven.apache.org/plugins/index.html) (e.g. the spotify [docker-maven-plugin](https://github.com/spotify/docker-maven-plugin), the [release](http://maven.apache.org/maven-release/maven-release-plugin/) plugin).
